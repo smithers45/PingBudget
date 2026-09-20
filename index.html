@@ -1,1 +1,85 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>PingBudget</title></head><body><h1>PingBudget</h1><p>Privacy policy coming shortly.</p></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PingBudget Privacy Policy</title>
+  <meta name="description" content="Privacy policy for PingBudget, the private, offline-first Android budgeting app.">
+  <style>
+    :root { color-scheme: light dark; --ink:#16202B; --paper:#F2F4F3; --muted:#546270; --line:#D2D8D7; --accent:#0F6F6C; --card:#FFFFFF; }
+    @media (prefers-color-scheme:dark) { :root { --ink:#F2F4F3; --paper:#16202B; --muted:#9BAAB8; --line:#2E3B49; --accent:#5FC08A; --card:#1F2B38; } }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--paper); color:var(--ink); font-family:Roboto,"Segoe UI",system-ui,sans-serif; line-height:1.62; }
+    header { border-bottom:1px solid var(--line); }
+    .brand { max-width:760px; margin:auto; padding:30px 24px 22px; }
+    .wordmark { font-size:24px; font-weight:700; letter-spacing:-.5px; }
+    .wordmark i { color:#E5484D; font-style:normal; padding:0 3px; }
+    main { max-width:760px; margin:0 auto; padding:34px 24px 72px; }
+    h1 { font-size:36px; line-height:1.15; margin:0 0 8px; letter-spacing:-1px; }
+    .lede,.meta { color:var(--muted); }
+    .lede { font-size:18px; margin:0 0 30px; }
+    h2 { font-size:21px; line-height:1.3; margin:34px 0 8px; }
+    p,li { font-size:16px; }
+    a { color:var(--accent); font-weight:600; }
+    .notice { margin:28px 0; padding:18px 20px; background:var(--card); border:1px solid var(--line); border-radius:12px; }
+    footer { border-top:1px solid var(--line); margin-top:42px; padding-top:22px; color:var(--muted); font-size:14px; }
+  </style>
+</head>
+<body>
+<header><div class="brand"><div class="wordmark">Ping <i>)))</i> ◕ Budget</div></div></header>
+<main>
+  <h1>Privacy Policy</h1>
+  <p class="lede">PingBudget is made by Brian Smith. It has no account system and no developer-operated server.</p>
+  <p class="meta"><strong>Effective:</strong> September 20, 2026 · <strong>App version:</strong> 0.1</p>
+
+  <div class="notice"><strong>The short version:</strong> your financial records stay under your control. PingBudget does not upload your transactions, budgets, bank alerts, receipts, or statements. Google's ML Kit sends limited technical diagnostics when its on-device text-recognition features are used; those diagnostics are described below.</div>
+
+  <h2>Your money data stays on your device</h2>
+  <p>Transactions, budgets, categories, rules, income plans, and notification content are stored in a Room database inside PingBudget's private app storage. Android prevents other apps from reading that storage. PingBudget does not upload this information.</p>
+  <p>The exception is a backup you deliberately export. Backups are encrypted before they are written. If you choose a folder supplied by a cloud-storage provider, that provider may upload the encrypted backup under its own privacy policy.</p>
+
+  <h2>Google ML Kit diagnostics</h2>
+  <p>Two features use Google's bundled, on-device ML Kit text recognition: receipt scanning and importing a bank statement saved as a PDF. Receipt images, rendered PDF pages, and recognized text are processed locally and are not uploaded.</p>
+  <p>ML Kit does send Google diagnostic data over HTTPS, including device and app information, a per-installation identifier, performance and timing measurements, input and output sizes, event types, and errors. This is PingBudget's only automatic network egress. ML Kit does not provide a supported opt-out for these diagnostics.</p>
+
+  <h2>Statement imports</h2>
+  <p>PingBudget accepts QFX/OFX, CSV, and PDF bank statements. QFX/OFX and CSV files are parsed entirely on your device. PDF pages are rendered locally and passed to the on-device ML Kit recognizer. Statement files, transaction contents, and recognized text are never uploaded; only the ML Kit diagnostics described above are sent.</p>
+
+  <h2>Receipt photos</h2>
+  <p>PingBudget requests neither camera permission nor photo-library or storage permission. When you use its camera button, Android writes the capture to an app-private temporary cache. PingBudget reads it locally and deletes it after the scan, including after a failure or cancellation. At its next process launch, PingBudget also removes abandoned captures older than one hour.</p>
+  <p>If you choose an existing image through Android's photo picker, PingBudget reads it where it is and never copies, alters, or deletes it. Receipt images and the text read from them are never uploaded.</p>
+
+  <h2>Bank and payment notifications</h2>
+  <p>Automatic capture is optional. If you enable Android's notification-listener access, PingBudget uses a fixed allowlist of known bank and payment apps and ignores notifications from all other apps before parsing. Capture may operate while PingBudget is closed.</p>
+  <p>For a supported financial alert, PingBudget may read the title and body to identify the amount, merchant, direction, and limited card or account digits. It retains the original alert title and body on the local transaction so you can correct a bad match later. Individual sources can be excluded in Settings. PingBudget never asks for, stores, or uses your banking username or password, and it never signs in to your bank.</p>
+
+  <h2>Encrypted backups</h2>
+  <p>You may create encrypted backups and optionally schedule them. A backup contains the full ledger. Ledger content is encrypted with AES-256-GCM using a key derived from your passphrase with PBKDF2-HMAC-SHA256 and 600,000 iterations. For automatic backups, PingBudget can remember the passphrase sealed with Android Keystore so Android WorkManager can write a scheduled backup while the app is closed.</p>
+  <p>Backup files are written only to the folder you choose. A cloud-storage provider may sync an encrypted file in that folder under its own policy; PingBudget and its developer do not receive it. The backup envelope's non-sensitive header—including format, creation time, and algorithm parameters—is not encrypted; the ledger content is encrypted. Backup files saved outside the app are not removed by “Delete all app data” or uninstalling PingBudget, and must be deleted separately from their saved location.</p>
+
+  <h2>Biometric unlock</h2>
+  <p>If you enable app unlock, PingBudget never sees your fingerprint, face, or PIN. Android performs the check and tells PingBudget only whether it passed.</p>
+
+  <h2>No ads or developer tracking</h2>
+  <p>PingBudget contains no advertising, Firebase, first-party analytics, developer telemetry, or crash-reporting service. Nobody is measuring which screens you open or what you spend. The Google ML Kit diagnostics described above are the only exception to this no-tracking approach.</p>
+
+  <h2>Retention and deletion</h2>
+  <p>Your local data remains until you delete it. You can delete individual records, use <strong>Delete all app data</strong> in Settings, or uninstall PingBudget. Temporary camera captures are deleted after scanning or by the abandoned-cache cleanup described above.</p>
+  <p>Encrypted backup files remain separate and must be deleted from the folder where you saved them. PingBudget has no server copy and no account to close.</p>
+
+  <h2>Permissions in plain language</h2>
+  <ul>
+    <li><strong>Internet:</strong> present because Google ML Kit sends its diagnostics.</li>
+    <li><strong>Notification listener:</strong> granted separately in Android Settings and used only for optional automatic transaction capture.</li>
+    <li><strong>Network state, wake lock, boot completed, and foreground service:</strong> supplied by Android WorkManager for scheduled background work such as backups.</li>
+    <li><strong>Biometric/fingerprint:</strong> used by Android to protect app access; PingBudget receives only pass or fail.</li>
+    <li><strong>Camera and photo storage:</strong> not requested.</li>
+  </ul>
+
+  <h2>Contact</h2>
+  <p>Developer: Brian Smith<br>Privacy and feedback: <a href="mailto:pingbudget@gmail.com">pingbudget@gmail.com</a></p>
+
+  <footer>PingBudget Privacy Policy · Version 0.1 · Last updated September 20, 2026</footer>
+</main>
+</body>
+</html>
