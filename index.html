@@ -31,7 +31,7 @@
 <main>
   <h1>Privacy Policy</h1>
   <p class="lede">PingBudget is made by Brian Smith. It has no account system and no developer-operated server.</p>
-  <p class="meta"><strong>Effective:</strong> September 20, 2026 · <strong>App version:</strong> 0.15</p>
+  <p class="meta"><strong>Effective:</strong> September 20, 2026 · <strong>App version:</strong> 0.20</p>
 
   <div class="notice"><strong>The short version:</strong> your financial records stay under your control. PingBudget does not upload your transactions, budgets, bank alerts, receipts, or statements. Google's ML Kit sends limited technical diagnostics when its on-device text-recognition features are used; those diagnostics are described below.</div>
 
@@ -54,6 +54,10 @@
   <p>Automatic capture is optional. If you enable Android's notification-listener access, PingBudget uses a fixed allowlist of known bank and payment apps and ignores notifications from all other apps before parsing. Capture may operate while PingBudget is closed.</p>
   <p>For a supported financial alert, PingBudget may read the title and body to identify the amount, merchant, direction, and limited card or account digits. It retains the original alert title and body on the local transaction so you can correct a bad match later. Individual sources can be excluded in Settings. PingBudget never asks for, stores, or uses your banking username or password, and it never signs in to your bank.</p>
 
+  <h2>Local budget alerts</h2>
+  <p>If you configure an alert, PingBudget evaluates it entirely on this phone when a new live bank or payment notification creates a transaction. Alert settings and once-per-month markers stay in private app storage.</p>
+  <p>A system notification may contain the merchant, amount, date, budget category, or amount remaining needed to explain the alert. None of that information is sent to PingBudget's developer or to a PingBudget server. Android 13 and later asks for notification-posting permission when you first save an enabled alert; you may decline it and continue using every other feature.</p>
+
   <h2>Encrypted backups</h2>
   <p>You may create encrypted backups and optionally schedule them. A backup contains the full ledger. Ledger content is encrypted with AES-256-GCM using a key derived from your passphrase with PBKDF2-HMAC-SHA256 and 600,000 iterations. For automatic backups, PingBudget can remember the passphrase sealed with Android Keystore so Android WorkManager can write a scheduled backup while the app is closed.</p>
   <p>Backup files are written only to the folder you choose. A cloud-storage provider may sync an encrypted file in that folder under its own policy; PingBudget and its developer do not receive it. The backup envelope's non-sensitive header—including format, creation time, and algorithm parameters—is not encrypted; the ledger content is encrypted. Backup files saved outside the app are not removed by “Delete all app data” or uninstalling PingBudget, and must be deleted separately from their saved location.</p>
@@ -71,6 +75,7 @@
   <h2>Permissions in plain language</h2>
   <ul>
     <li><strong>Internet:</strong> present because Google ML Kit sends its diagnostics.</li>
+    <li><strong>Notification posting:</strong> requested only for local budget alerts the user chooses to configure.</li>
     <li><strong>Notification listener:</strong> granted separately in Android Settings and used only for optional automatic transaction capture.</li>
     <li><strong>Network state, wake lock, boot completed, and foreground service:</strong> supplied by Android WorkManager for scheduled background work such as backups.</li>
     <li><strong>Biometric/fingerprint:</strong> used by Android to protect app access; PingBudget receives only pass or fail.</li>
@@ -80,7 +85,7 @@
   <h2>Contact</h2>
   <p>Developer: Brian Smith<br>Privacy and feedback: <a href="mailto:pingbudget@gmail.com">pingbudget@gmail.com</a></p>
 
-  <footer>PingBudget Privacy Policy · Version 0.15 · Last updated September 20, 2026</footer>
+  <footer>PingBudget Privacy Policy · Version 0.20 · Last updated September 21, 2026</footer>
 </main>
 </body>
 </html>
