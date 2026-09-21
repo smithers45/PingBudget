@@ -12,8 +12,9 @@
     body { margin:0; background:var(--paper); color:var(--ink); font-family:Roboto,"Segoe UI",system-ui,sans-serif; line-height:1.62; }
     header { border-bottom:1px solid var(--line); }
     .brand { max-width:760px; margin:auto; padding:30px 24px 22px; }
-    .wordmark { font-size:24px; font-weight:700; letter-spacing:-.5px; }
-    .wordmark i { color:#E5484D; font-style:normal; padding:0 3px; }
+    .wordmark { display:inline-flex; align-items:center; color:var(--ink); font-size:24px; font-weight:700; line-height:1; letter-spacing:-.5px; white-space:nowrap; }
+    .wordmark-waves { width:21px; height:23px; margin-left:3px; display:block; flex:none; }
+    .wordmark-pie { width:31px; height:31px; margin:0 7px; display:block; flex:none; }
     main { max-width:760px; margin:0 auto; padding:34px 24px 72px; }
     h1 { font-size:36px; line-height:1.15; margin:0 0 8px; letter-spacing:-1px; }
     .lede,.meta { color:var(--muted); }
@@ -26,11 +27,11 @@
   </style>
 </head>
 <body>
-<header><div class="brand"><div class="wordmark">Ping <i>)))</i> ◕ Budget</div></div></header>
+<header><div class="brand"><div class="wordmark" aria-label="Ping Budget"><span>Ping</span><svg class="wordmark-waves" viewBox="0 0 24 28" preserveAspectRatio="none" aria-hidden="true"><path d="M2 11 A5 5 0 0 1 2 17" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M6 7 A10 10 0 0 1 6 21" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M11 3 A16 16 0 0 1 11 25" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><svg class="wordmark-pie" viewBox="28 28 52 52" aria-hidden="true"><path d="M54,54 L54,28 A26,26 0 0 1 76.52,67 Z" fill="#E5484D"/><path d="M54,54 L76.52,67 A26,26 0 0 1 37.29,73.92 Z" fill="#4CC38A"/><path d="M54,54 L37.29,73.92 A26,26 0 0 1 54,28 Z" fill="#F0883E"/></svg><span>Budget</span></div></div></header>
 <main>
   <h1>Privacy Policy</h1>
   <p class="lede">PingBudget is made by Brian Smith. It has no account system and no developer-operated server.</p>
-  <p class="meta"><strong>Effective:</strong> September 20, 2026 · <strong>App version:</strong> 0.11</p>
+  <p class="meta"><strong>Effective:</strong> September 20, 2026 · <strong>App version:</strong> 0.12</p>
 
   <div class="notice"><strong>The short version:</strong> your financial records stay under your control. PingBudget does not upload your transactions, budgets, bank alerts, receipts, or statements. Google's ML Kit sends limited technical diagnostics when its on-device text-recognition features are used; those diagnostics are described below.</div>
 
@@ -79,7 +80,7 @@
   <h2>Contact</h2>
   <p>Developer: Brian Smith<br>Privacy and feedback: <a href="mailto:pingbudget@gmail.com">pingbudget@gmail.com</a></p>
 
-  <footer>PingBudget Privacy Policy · Version 0.11 · Last updated September 20, 2026</footer>
+  <footer>PingBudget Privacy Policy · Version 0.12 · Last updated September 20, 2026</footer>
 </main>
 </body>
 </html>
