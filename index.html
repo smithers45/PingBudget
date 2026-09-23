@@ -31,7 +31,7 @@
 <main>
   <h1>Privacy Policy</h1>
   <p class="lede">PingBudget is made by Brian Smith. It has no account system and no developer-operated server.</p>
-  <p class="meta"><strong>Effective:</strong> September 22, 2026 · <strong>App version:</strong> 0.27</p>
+  <p class="meta"><strong>Effective:</strong> September 22, 2026 · <strong>App version:</strong> 0.38</p>
 
   <div class="notice"><strong>The short version:</strong> your financial records stay under your control. PingBudget does not upload your transactions, budgets, bank alerts, receipts, or statements. Google's ML Kit sends limited technical diagnostics when its on-device text-recognition features are used; those diagnostics are described below.</div>
 
@@ -40,15 +40,16 @@
   <p>The exception is a backup you deliberately export. Backups are encrypted before they are written. If you choose a folder supplied by a cloud-storage provider, that provider may upload the encrypted backup under its own privacy policy.</p>
 
   <h2>Google ML Kit diagnostics</h2>
-  <p>Two features use Google's bundled, on-device ML Kit text recognition: receipt scanning and importing a bank statement saved as a PDF. Receipt images, rendered PDF pages, and recognized text are processed locally and are not uploaded.</p>
+  <p>Receipt scanning uses Google's bundled, on-device ML Kit text recognition. Importing a bank statement saved as a PDF uses it only when the PDF has no text layer &mdash; that is, when the file is a scan. A PDF produced by your bank is read directly from the text already inside the file, with no image recognition at all. Receipt images, rendered PDF pages, and recognized text are processed locally and are not uploaded.</p>
   <p>ML Kit does send Google diagnostic data over HTTPS, including device and app information, a per-installation identifier, performance and timing measurements, input and output sizes, event types, and errors. This is PingBudget's only automatic network egress. ML Kit does not provide a supported opt-out for these diagnostics.</p>
 
   <h2>Statement imports</h2>
-  <p>PingBudget accepts QFX/OFX, CSV, and PDF bank statements. QFX/OFX and CSV files are parsed entirely on your device. PDF pages are rendered locally and passed to the on-device ML Kit recognizer. Statement files, transaction contents, and recognized text are never uploaded; only the ML Kit diagnostics described above are sent.</p>
+  <p>PingBudget accepts QFX/OFX, CSV, and PDF bank statements. QFX/OFX and CSV files are parsed entirely on your device. A PDF that contains a text layer is read directly on your device using a bundled PDF library, with no image recognition and no ML Kit involvement. Only a scanned PDF, which has no text to read, is rendered to images locally and passed to the on-device ML Kit recognizer. Statement files, transaction contents, and recognized text are never uploaded; only the ML Kit diagnostics described above are sent.</p>
 
   <h2>Receipt photos</h2>
   <p>PingBudget requests neither camera permission nor photo-library or storage permission. When you use its camera button, Android writes the capture to an app-private temporary cache. PingBudget reads it locally and deletes it after the scan, including after a failure or cancellation. At its next process launch, PingBudget also removes abandoned captures older than one hour.</p>
   <p>If you choose an existing image through Android's photo picker, PingBudget reads it where it is and never copies, alters, or deletes it. Receipt images and the text read from them are never uploaded.</p>
+<p>Before a receipt is read, PingBudget offers a screen to crop and rotate the photo, and then adjusts its own working copy &mdash; resizing it, converting it to greyscale and increasing its contrast &mdash; to make the text easier to recognize. All of that happens in memory on your device. Your original photo is not modified, and the working copy is discarded once the scan finishes.</p>
 
   <h2>Bank and payment notifications</h2>
   <p>Automatic capture is optional. If you enable Android's notification-listener access, PingBudget uses a fixed allowlist of known bank and payment apps and ignores notifications from all other apps before parsing. Capture may operate while PingBudget is closed.</p>
@@ -85,7 +86,7 @@
   <h2>Contact</h2>
   <p>Developer: Brian Smith<br>Privacy and feedback: <a href="mailto:pingbudget@gmail.com">pingbudget@gmail.com</a></p>
 
-  <footer>PingBudget Privacy Policy · Version 0.27 · Last updated September 22, 2026</footer>
+  <footer>PingBudget Privacy Policy · Version 0.38 · Last updated September 22, 2026</footer>
 </main>
 </body>
 </html>
