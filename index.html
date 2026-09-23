@@ -20,6 +20,9 @@
     .lede,.meta { color:var(--muted); }
     .lede { font-size:18px; margin:0 0 30px; }
     h2 { font-size:21px; line-height:1.3; margin:34px 0 8px; }
+    h3 { font-size:17px; line-height:1.35; margin:22px 0 6px; }
+    ol { padding-left:22px; }
+    ol li { margin:4px 0; }
     p,li { font-size:16px; }
     a { color:var(--accent); font-weight:600; }
     .notice { margin:28px 0; padding:18px 20px; background:var(--card); border:1px solid var(--line); border-radius:12px; }
@@ -73,9 +76,35 @@
   <p>PingBudget is free and nothing in it is behind a paywall. The app offers an optional tip link. Tapping it opens a Stripe checkout page in your browser; PingBudget itself sends nothing and receives nothing. Your card number never reaches PingBudget or its developer.</p>
   <p>Stripe collects and processes the payment, contact, and transaction details needed to take the payment, and it does so as an independent company under its own <a href="https://stripe.com/privacy">privacy policy</a>. The developer can see the ordinary record of a completed payment that any Stripe account holder sees, and uses it only for accounting. A tip unlocks no features, content, or badges, PingBudget keeps no record of who tipped, and the app behaves identically whether you tip or not.</p>
 
-  <h2>Retention and deletion</h2>
-  <p>Your local data remains until you delete it. You can delete individual records, use <strong>Delete all app data</strong> in Settings, or uninstall PingBudget. Temporary camera captures are deleted after scanning or by the abandoned-cache cleanup described above.</p>
-  <p>Encrypted backup files remain separate and must be deleted from the folder where you saved them. PingBudget has no server copy and no account to close.</p>
+  <h2 id="delete-my-data">How to delete your data</h2>
+  <p>PingBudget has no account and no server. There is nothing to request from the developer, no form to submit, and no waiting period &mdash; every copy of your data is on your own phone, and you can erase all of it yourself in a few seconds.</p>
+
+  <h3>Delete everything</h3>
+  <ol>
+    <li>Open PingBudget and go to <strong>Settings</strong>.</li>
+    <li>Tap <strong>Your data</strong> to expand that section.</li>
+    <li>Tap <strong>Delete all app data</strong>.</li>
+    <li>Read the confirmation, then tap <strong>Delete everything</strong>.</li>
+  </ol>
+  <p>This permanently removes every transaction, budget limit, category rule, and paycheck schedule from the phone, and it also forgets any backup passphrase PingBudget was holding in Android Keystore. It cannot be undone, and because nothing is stored on a server there is no copy anywhere to restore from &mdash; only a backup file you saved yourself.</p>
+
+  <h3>Delete a single transaction</h3>
+  <p>Tap any transaction to open its details, tap <strong>Delete</strong>, and confirm. This is the right tool for removing one mis-read bank alert rather than starting over.</p>
+
+  <h3>Delete your backup files</h3>
+  <p>Backups you exported are ordinary files in whichever folder you chose, and they are <em>not</em> touched by <strong>Delete all app data</strong> or by uninstalling. To remove them, delete them yourself from that folder using your phone's Files app or the cloud-storage app that holds them. If the folder was synced to a cloud provider, delete the provider's copy too.</p>
+
+  <h3>Delete everything by uninstalling</h3>
+  <p>Uninstalling PingBudget removes its private storage along with it, which erases the whole ledger. Exported backup files still survive, as above.</p>
+
+  <h3>Data held by others</h3>
+  <p>The Google ML Kit diagnostics described above are sent to Google, not to PingBudget, and the developer cannot see them or delete them; they are governed by Google's privacy policy. If you sent an optional tip, the payment record sits with Stripe under <a href="https://stripe.com/privacy">its own privacy policy</a> and is kept for the period Stripe's terms and applicable tax law require. Neither of these contains your financial records, budgets, or transactions.</p>
+
+  <h2>Retention</h2>
+  <p>Your local data remains on the phone until you delete it by one of the methods above. Temporary camera captures are deleted after scanning or by the abandoned-cache cleanup described above. PingBudget has no server copy and no account to close.</p>
+
+  <h3>Questions about deletion</h3>
+  <p>If any of the above does not work as described, email <a href="mailto:pingbudget@gmail.com">pingbudget@gmail.com</a>.</p>
 
   <h2>Permissions in plain language</h2>
   <ul>
