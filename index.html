@@ -92,7 +92,7 @@
 
   <h2>Bank and payment notifications</h2>
   <p>Automatic capture is optional. If you enable Android's notification-listener access, PingBudget uses a fixed allowlist of known bank and payment apps and ignores notifications from all other apps before parsing. Capture may operate while PingBudget is closed.</p>
-  <p>For a supported financial alert, PingBudget may read the title and body to identify the amount, merchant, direction, and limited card or account digits. It retains the original alert title and body on the local transaction so you can correct a bad match later. Individual sources can be excluded in Settings. PingBudget never asks for, stores, or uses your banking username or password, and it never signs in to your bank.</p>
+  <p>For a supported financial alert, PingBudget may read the title and body to identify the amount, merchant, direction, limited card or account digits, and the account balance when your bank includes one. It retains the original alert title and body on the local transaction so you can correct a bad match later, and keeps the most recent balance for each account in private app storage so it can be shown on the Overview tab. Individual sources can be excluded in Settings. PingBudget never asks for, stores, or uses your banking username or password, and it never signs in to your bank.</p>
 
   <h2>Local budget alerts</h2>
   <p>If you configure an alert, PingBudget evaluates it entirely on this phone when a new live bank or payment notification creates a transaction. Alert settings and once-per-month markers stay in private app storage.</p>
